@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbit-X | Engineering</title>
+    <!-- Combined Clash Display for Headings, Inter for Body -->
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Cinematic Space Journey Loader -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <!-- Audio element hidden -->
+            <audio id="interstellar-audio" loop>
+                <source src="https://cs1.mp3.pm/download/43426934/QUY2VlkzZFhRSnlReUZKaEtqblo2QWFJZldSdUdCOVZCWUc2M2NKd2F0RmY4ZGthNmZNQmJ2VDlScUNEeXlmY3pna0JnY3BxcjMyZVpRaEJtSWFvY3JyMHFCNFJLaXJzL1dPdG9wc3pRTDZzM2tRN2hnQWFPUWQ2cEsyRzdNT1I/Hans_Zimmer_-_Interstellar_Main_Theme_OST_INTERSTELLER_(mp3.pm).mp3" type="audio/mpeg">
+            </audio>
+
+            <button id="start-journey-btn" class="anime-btn primary" style="padding: 16px 48px; font-size: 14px; letter-spacing: 4px; background: transparent; border: 1px solid #fff; color: #fff; cursor: pointer;">INITIATE SEQUENCE</button>
+            
+            <div id="cinematic-text-container" style="display: none;">
+                <h2 id="cinematic-text" class="heading-medium" style="text-align: center; font-weight: 300; letter-spacing: 8px;"></h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Reservation Form Modal -->
+    <div id="reserve-modal" class="modal">
+        <div class="modal-bg"></div>
+        <div class="modal-content">
+            <button class="close-btn" id="close-modal">&times;</button>
+            
+            <div id="form-state">
+                <h2 class="heading-medium">Secure Manifest</h2>
+                <p class="body-regular mt-16">Enter your credentials for the Q3 2027 commercial flight roster.</p>
+                <form id="reserve-form">
+                    <input type="text" id="req-name" placeholder="Full Name" required>
+                    <input type="email" id="req-email" placeholder="Commlink (Email)" required>
+                    <input type="tel" id="req-phone" placeholder="Frequency (Phone)" required>
+                    <button type="submit" class="submit-btn mt-16 magnetic-btn">INITIATE TRANSFER</button>
+                </form>
+            </div>
+
+            <div id="success-state" style="display: none; text-align: center; position: relative; height: 200px; overflow: hidden;">
+                <div id="rocket-launch" style="position: absolute; bottom: -100px; left: 50%; transform: translateX(-50%);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>
+                </div>
+                <div id="success-text" style="opacity: 0; transform: translateY(20px);">
+                    <div class="success-icon" style="font-size: 40px;">✓</div>
+                    <h2 class="heading-medium mt-16">TRANSMISSION RECEIVED</h2>
+                    <p class="body-regular mt-16">Your manifest request is confirmed. Our flight directors will get back to you shortly to finalize details.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Premium Trailing Cursor -->
+    <div id="cursor-dot" class="cursor-dot"></div>
+    <div id="cursor-outline" class="cursor-outline"></div>
+
+    <nav class="nav">
+        <div class="nav-brand">ORBIT-X</div>
+        <div class="nav-links">
+            <a href="#overview">Overview</a>
+            <a href="#warp">Simulations</a>
+            <a href="#engineering">Engineering</a>
+        </div>
+        <button id="open-reserve" class="nav-btn magnetic-btn">Reserve</button>
+    </nav>
+
+    <!-- Hero with SpaceX Media -->
+    <header class="hero" id="overview">
+        <div class="hero-bg-container">
+            <img src="assets/home_hero_ba20d17dfc.webp" alt="SpaceX Launch" class="hero-bg">
+        </div>
+        <div class="hero-content">
+            <h1 class="heading-large reveal-text">Suborbital Flights.</h1>
+            <h1 class="heading-large text-gray reveal-text">Now boarding.</h1>
+            <p class="body-large mt-32 reveal-text">Experience the Karman line. 100km altitude. Zero gravity.</p>
+        </div>
+    </header>
+
+    <!-- WebGL Pinned Particle Section -->
+    <section class="webgl-section" id="warp">
+        <div class="webgl-container">
+            <canvas id="webgl"></canvas>
+            <div class="webgl-overlay">
+                <h2 class="heading-medium scrub-text">Orbital Trajectory</h2>
+                <p class="body-regular mt-16 scrub-text">Scroll to initiate particle acceleration.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Editorial SpaceX Media Section -->
+    <section class="editorial-section" id="engineering">
+        <div class="editorial-text">
+            <h2 class="heading-medium scrub-text">Precision Engineering.</h2>
+            <p class="body-regular mt-16">Our reusable launch vehicles are designed with absolute structural integrity, utilizing advanced carbon-composite thermal shielding to withstand 2000°C atmospheric reentry.</p>
+        </div>
+        <div class="editorial-img-container">
+            <img src="assets/Advancing_Human_Spaceflight_Desktop_61c8ba1c67.jpg" alt="Spaceflight" class="editorial-img">
+        </div>
+    </section>
+
+    <!-- Second Editorial Section -->
+    <section class="editorial-section reverse">
+        <div class="editorial-text">
+            <h2 class="heading-medium scrub-text">Zero Drag.<br>Zero Gravity.</h2>
+            <p class="body-regular mt-16">Main engine cutoff occurs at 50km. Momentum carries you into the thermosphere, offering 4 minutes of absolute weightlessness and silence.</p>
+        </div>
+        <div class="editorial-img-container">
+            <img src="assets/Revolutionizing_Space_Tech_Desktop_ec67ad03c2.jpg" alt="Space Tech" class="editorial-img">
+        </div>
+    </section>
+
+    <!-- Massive Bottom CTA -->
+    <section class="cta-section" id="bottom-reserve">
+        <h2 class="heading-large scrub-text">Ready for Launch?</h2>
+        <p class="body-large mt-16" style="margin-bottom: 40px;">Join the exclusive roster of commercial astronauts.</p>
+        <button class="anime-btn primary cta-btn magnetic-btn" style="padding: 24px 64px; font-size: 20px;">SECURE YOUR SEAT</button>
+    </section>
+
+    <footer class="footer">
+        <p class="body-small text-gray">© 2026 Orbit-X. All systems nominal.</p>
+    </footer>
+
+    <!-- Libraries -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

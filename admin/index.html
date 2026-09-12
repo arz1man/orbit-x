@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbit-X | Flight Director Admin</title>
+    <!-- Fonts -->
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* Override global cursor hide from main site */
+        body, a, button, input { cursor: auto !important; }
+
+        /* Admin Specific Styles */
+        body { background: #0a0a0a; display: flex; align-items: center; justify-content: center; min-height: 100vh; overflow-x: hidden; }
+        
+        #admin-login { max-width: 400px; width: 100%; text-align: center; padding: 40px; background: rgba(255,255,255,0.02); border: 1px solid #333; border-radius: 12px; }
+        
+        #admin-dashboard { display: none; width: 100%; max-width: 1000px; padding: 40px; }
+        .dashboard-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px; }
+        
+        .manifest-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .manifest-table th, .manifest-table td { padding: 16px; text-align: left; border-bottom: 1px solid #222; font-family: 'Inter', sans-serif; }
+        .manifest-table th { color: #f59e0b; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
+        .manifest-table td { color: #ccc; font-size: 15px; }
+        .manifest-table tr:hover { background: rgba(255,255,255,0.02); }
+        
+        .status-badge { background: rgba(74, 222, 128, 0.1); color: #4ade80; padding: 4px 8px; border-radius: 4px; font-size: 12px; border: 1px solid rgba(74, 222, 128, 0.2); }
+        
+        .logout-btn { background: transparent; color: #666; border: none; cursor: pointer; font-family: 'Inter', sans-serif; text-transform: uppercase; font-size: 12px; transition: color 0.3s; }
+        .logout-btn:hover { color: #fff; }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Login Screen -->
+    <div id="admin-login">
+        <h2 class="heading-medium" style="font-size: 32px; margin-bottom: 8px;">RESTRICTED</h2>
+        <p class="body-regular text-gray" style="margin-bottom: 32px;">Flight Director Access Only</p>
+        
+        <form id="login-form">
+            <input type="password" id="admin-password" placeholder="Enter Access Code" required style="width: 100%; text-align: center; letter-spacing: 4px;">
+            <button type="submit" class="submit-btn mt-32" style="width: 100%;">AUTHENTICATE</button>
+        </form>
+        <p id="login-error" style="color: #ef4444; margin-top: 16px; font-family: 'Inter'; font-size: 13px; display: none;">Invalid credentials.</p>
+    </div>
+
+    <!-- 2. Dashboard Screen -->
+    <div id="admin-dashboard">
+        <div class="dashboard-header">
+            <div>
+                <h1 class="heading-medium">Flight Manifest</h1>
+                <p class="body-regular text-gray mt-8">Registered Astronaut Candidates</p>
+            </div>
+            <button id="logout-btn" class="logout-btn">Terminate Session</button>
+        </div>
+        
+        <table class="manifest-table">
+            <thead>
+                <tr>
+                    <th>Designation (Name)</th>
+                    <th>Commlink (Email)</th>
+                    <th>Frequency (Phone)</th>
+                    <th>Timestamp</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="manifest-body">
+                <!-- Data populated by JS -->
+            </tbody>
+        </table>
+        <div id="empty-state" style="display: none; text-align: center; padding: 64px 0; color: #666; font-family: 'Inter';">No candidates registered yet.</div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="../admin.js"></script>
+</body>
+</html>
